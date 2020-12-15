@@ -55,7 +55,7 @@
         <h1 align="center">Login</h1>
         <%
             String ifFail = (String)request.getAttribute("ifFail");
-            if(ifFail.equals("failed")){
+            if("failed".equals(ifFail)){
         %>
             <h5 > 密码错误，请重新输入</h5>
         <%
@@ -65,7 +65,7 @@
         <form action="${pageContext.request.contextPath}/servlet/loginCheckServlet" method="post" onsubmit="return beforeSubmit(this)">
             账号： <input class="input1" type="text" placeholder="请输入账号"  name="id">  <br/>
             密码： <input class="input1" type="password" placeholder="请输入密码" name="pwd"> <br/>
-            <img  id="imgValidate" src="/servlet/validateServlet" onclick="refresh();">
+            <img  id="imgValidate" src="servlet/validateServlet" onclick="refresh();">
             <a onclick="refresh();"  style="color: brown;">看不清，换一张</a>
             请输入验证码：<input class="input1" type="text" name="code" size="10"><br/>
 
