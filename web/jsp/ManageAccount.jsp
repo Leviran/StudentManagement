@@ -20,7 +20,7 @@
         List<Student> stulist = StudentDao.getAllStu();
     %>
     <h4>教师列表</h4>
-    <table>
+    <table border="1px">
         <tr>
             <th>账号</th>
             <th>姓名</th>
@@ -29,6 +29,8 @@
             <th>操作</th>
         </tr>
         <%
+            if(tealist!=null){
+
             for(Teacher t: tealist){
         %>
             <tr>
@@ -39,13 +41,18 @@
                 <td><a href="AdminUpdateTeaPwd.jsp?id=<%=t.getId()%>" target="right">修改密码</a></td>
             </tr>
         <%
+            }//for
+
+            }//if
+            else{
+                out.print("null");
             }
         %>
     </table>
 
 
     <h4>学生列表</h4>
-    <table>
+    <table border="1px">
         <tr>
             <th>账号</th>
             <th>姓名</th>
@@ -54,6 +61,8 @@
             <th>操作</th>
         </tr>
         <%
+            if(stulist!=null){
+
             for(Student s: stulist){
         %>
         <tr>
@@ -64,7 +73,9 @@
             <td><a href="AdminUpdateStuPwd.jsp?id=<%=s.getId()%>" target="right">修改密码</a></td>
         </tr>
         <%
-            }
+            }//for
+
+            }//if
         %>
     </table>
 

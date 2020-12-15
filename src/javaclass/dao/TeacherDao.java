@@ -5,6 +5,7 @@ import entity.Teacher;
 import util.DBUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherDao {
@@ -39,8 +40,8 @@ public class TeacherDao {
     }
 
     public static void add(Teacher t){
-        String sql = "insert into teacher (id,name,password,sex,mail,portrait)values(?,?,?,?,?,?)";
-        Object[] params = {t.getId(),t.getName(),t.getPassword(),t.getSex(),t.getMail(),t.getPortrait()};
+        String sql = "insert into teacher (id,name,password,sex,mail)values(?,?,?,?,?)";
+        Object[] params = {t.getId(),t.getName(),t.getPassword(),t.getSex(),t.getMail()};
         try {
             int count = DBUtil.executeUpdate(sql,params);
             if(count>0){
@@ -121,7 +122,6 @@ public class TeacherDao {
                 tea.setDepartment(rt.getString("department"));
                 tea.setMail(rt.getString("mail"));
                 tea.setSex(rt.getString("sex"));
-                tea.setPortrait(rt.getBlob("portrait"));
                 return tea;
             }else {
                 return null;
@@ -184,7 +184,7 @@ public class TeacherDao {
     public static List<Teacher> getAllTea(){
         String sql = "select * from teacher";
         ResultSet rt = null;
-        List<Teacher> tealist = null;
+        List<Teacher> tealist = new ArrayList<>();
         rt = DBUtil.executeQuery(sql,null);
         try{
             while(rt.next()){
@@ -195,7 +195,6 @@ public class TeacherDao {
                 tea.setDepartment(rt.getString("department"));
                 tea.setMail(rt.getString("mail"));
                 tea.setSex(rt.getString("sex"));
-                tea.setPortrait(rt.getBlob("portrait"));
                 tealist.add(tea);
             }
             return tealist;

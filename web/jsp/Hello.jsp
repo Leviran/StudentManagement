@@ -1,4 +1,4 @@
-<%@ page import="dao.Stuinfo" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: yuan
   Date: 2020/11/13

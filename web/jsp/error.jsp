@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>404</title>
 </head>
 <body>
     您进入了错误页面

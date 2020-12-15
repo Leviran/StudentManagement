@@ -18,7 +18,7 @@
     List<Student> list = StudentDao.getAllStu();
 %>
 <h4>学生列表</h4>
-<table>
+<table border="1px">
     <tr>
         <th>账号</th>
         <th>姓名</th>
@@ -27,6 +27,8 @@
         <th>操作</th>
     </tr>
     <%
+        if(list!=null){
+
         for(Student s: list){
     %>
     <tr>
@@ -38,7 +40,9 @@
         <td><a href="updateStuInfo.jsp?id=<%=s.getId()%>"target="right">修改学生信息</a></td>
     </tr>
     <%
-        }
+        }//for
+
+        }//if
     %>
 </table>
 <br/>

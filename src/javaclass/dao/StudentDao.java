@@ -4,6 +4,7 @@ import entity.Student;
 import util.DBUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDao {
@@ -75,8 +76,8 @@ public class StudentDao {
     }
 //todo:总觉得这里两个id怪怪的
     public static void updateInfo(Student stu,String oldid){
-        String sql = "update student set id=?,name=?,password=?,birth=?,department=?,major=?,grade=?,sex=?,portrait=?,mail=? ,clazz=? where id = ?";
-        Object[] params = {stu.getId(),stu.getName(),stu.getPassword(),stu.getBirth(),stu.getDepartment(),stu.getMajor(),stu.getGrade(),stu.getSex(),stu.getPortrait(),stu.getMail(),stu.getClazz(),oldid};
+        String sql = "update student set id=?,name=?,password=?,birth=?,department=?,major=?,grade=?,sex=?,mail=? ,clazz=? where id = ?";
+        Object[] params = {stu.getId(),stu.getName(),stu.getPassword(),stu.getBirth(),stu.getDepartment(),stu.getMajor(),stu.getGrade(),stu.getSex(),stu.getMail(),stu.getClazz(),oldid};
         try {
             int count = DBUtil.executeUpdate(sql,params);
             if(count>0){
@@ -123,7 +124,6 @@ public class StudentDao {
                 stu.setMajor(rt.getString("major"));
                 stu.setSex(rt.getString("sex"));
                 stu.setGrade(rt.getString("grade"));
-                stu.setPortrait(rt.getBlob("portrait"));
                 stu.setClazz(rt.getString("clazz"));
                 return stu;
             }else {
@@ -152,7 +152,6 @@ public class StudentDao {
                 stu.setMajor(rt.getString("major"));
                 stu.setSex(rt.getString("sex"));
                 stu.setGrade(rt.getString("grade"));
-                stu.setPortrait(rt.getBlob("portrait"));
                 return stu;
             }else {
                 return null;
@@ -165,7 +164,7 @@ public class StudentDao {
     public static List<Student> getAllStu(){
         String sql = "select * from student";
         ResultSet rt = null;
-        List<Student> stulist = null;
+        List<Student> stulist = new ArrayList<>();
         rt = DBUtil.executeQuery(sql,null);
         try{
             while(rt.next()){
@@ -179,7 +178,6 @@ public class StudentDao {
                 stu.setMajor(rt.getString("major"));
                 stu.setSex(rt.getString("sex"));
                 stu.setGrade(rt.getString("grade"));
-                stu.setPortrait(rt.getBlob("portrait"));
                 stulist.add(stu);
             }
             return stulist;
@@ -206,7 +204,6 @@ public class StudentDao {
                 stu.setMajor(rt.getString("major"));
                 stu.setSex(rt.getString("sex"));
                 stu.setGrade(rt.getString("grade"));
-                stu.setPortrait(rt.getBlob("portrait"));
                 return stu;
             }else {
                 return null;

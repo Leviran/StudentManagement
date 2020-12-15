@@ -14,27 +14,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/servlet/updateStuPwdServlet")
+@WebServlet(urlPatterns = "/servlet/updateStuPwdServlet")
 public class updateStuPwdServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("0");
         String id=req.getParameter("id");
         String newpwd=req.getParameter("newpwd");
         Student stu = StudentDao.getStuById(id);
-        String ifSuccess = null;
-        if(stu!=null){
-            try {
-                StudentDao.changePassword(stu,newpwd);
-                ifSuccess = "success";
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else{
-            ifSuccess="failed";
+        String ifSuccess = "failed";
+        try {
+            StudentDao.changePassword(stu,newpwd);
+            ifSuccess = "success";
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+
         ServletContext application=this.getServletContext();
-        application.getRequestDispatcher("/jsp/AdminUpdateStuPwd.jsp?ifSuccess="+ifSuccess).forward(req,resp);
+        System.out.println("1");
+        application.getRequestDispatcher("jsp/AdminUpdateStuPwd.jsp?ifSuccess="+ifSuccess).forward(req,resp);
+        System.out.println("2");
     }
 
     @Override

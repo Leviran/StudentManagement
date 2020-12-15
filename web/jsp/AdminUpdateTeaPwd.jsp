@@ -28,11 +28,11 @@
 
     <%
         String ifSuccess = (String)request.getParameter("ifSuccess");
-        if(ifSuccess.equals("success")){
+        if("success".equals(ifSuccess)){
     %>
         <h5>修改成功！</h5>
     <%
-        }else if(ifSuccess.equals("failed")){
+        }else if("failed".equals(ifSuccess)){
     %>
         <h5>修改失败！</h5>
     <%

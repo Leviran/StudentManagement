@@ -5,12 +5,13 @@ import util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class McgDao {
     public static List<String> getCidByMAG(String majorid, String grade){
         ResultSet rt = null;
-        List<String> list = null;
+        List<String> list = new ArrayList<>();
         String sql = "select cid from mcg where majorid=? and grade=?";
         Object[] params = {majorid,grade};
         rt = DBUtil.executeQuery(sql,params);

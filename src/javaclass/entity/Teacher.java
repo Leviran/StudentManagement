@@ -7,18 +7,23 @@ public class Teacher {
     private String name;
     private String password;
     private String mail;
-    private Blob portrait;
     private String sex;
     private String department;
 
-    public Teacher(){}
+    public Teacher(){
+        this.id = "";
+        this.name = "";
+        this.password = "";
+        this.mail = "";
+        this.sex = "";
+        this.department = "";
+    }
 
-    public Teacher(String id, String name, String password, String mail, Blob portrait,String sex,String department) {
+    public Teacher(String id, String name, String password, String mail,String sex,String department) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.mail = mail;
-        this.portrait = portrait;
         this.sex = sex;
         this.department = department;
     }
@@ -72,11 +77,4 @@ public class Teacher {
         this.mail = mail;
     }
 
-    public Blob getPortrait() {
-        return portrait;
-    }
-
-    public void setPortrait(Blob portrait) {
-        this.portrait = portrait;
-    }
 }

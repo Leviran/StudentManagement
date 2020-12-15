@@ -68,9 +68,12 @@ public class DBUtil {
         ResultSet rt = null;
         try {
             ps = connection.prepareStatement(sql);
-            for(int i=0;i<params.length;i++){
-                ps.setObject(i+1,params[i]);
+            if(params!=null){
+                for(int i=0;i<params.length;i++){
+                    ps.setObject(i+1,params[i]);
+                }
             }
+
             rt = ps.executeQuery();
             return rt;
         } catch (SQLException throwables) {

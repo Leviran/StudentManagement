@@ -3,7 +3,6 @@ package servlet;
 import dao.AdminDao;
 import dao.StudentDao;
 import dao.TeacherDao;
-import dao.logincheckDao;
 import entity.Admin;
 import entity.Student;
 import entity.Teacher;
@@ -34,7 +33,7 @@ public class loginCheckServlet extends HttpServlet {
         String pwd = request.getParameter("pwd");
         //获取用户输入的验证码
         String code=request.getParameter("code");
-        //todo code_session哪来的呀？
+        //todo code_session？
         String code_session=(String)session.getAttribute("code_session");
         ServletContext application = this.getServletContext();
         if(code_session==null)

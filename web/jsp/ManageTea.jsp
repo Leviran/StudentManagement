@@ -17,7 +17,7 @@
     List<Teacher> tealist = TeacherDao.getAllTea();
 %>
 <h4>教师列表</h4>
-<table>
+<table border="1px">
     <tr>
         <th>账号</th>
         <th>姓名</th>
@@ -26,6 +26,8 @@
         <th>操作</th>
     </tr>
     <%
+        if(tealist!=null){
+
         for(Teacher t: tealist){
     %>
     <tr>
@@ -37,10 +39,12 @@
         <td><a href="updateTeaInfo.jsp"target="right">修改教师信息</a></td>
     </tr>
     <%
-        }
+        }//for
+
+        }//if
     %>
 </table>
-<br/>
+<br/><br/>
         <a href="AddTeaAccount.jsp" target="right">添加教师账号</a>
     <br/>
 </body>

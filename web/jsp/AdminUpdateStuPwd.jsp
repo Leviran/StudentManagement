@@ -11,9 +11,10 @@
     <link type="text/css" rel="stylesheet" href="css/in.css">
     <title>修改学生账号密码</title>
 </head>
-<body bgcolor="#7fffd4">
+<body bgcolor="#7fffff">
 <%
     String id = request.getParameter("id");
+    System.out.println(id);
 %>
 <form action="servlet/updateStuPwdServlet"   method="post">
     <label>
@@ -24,15 +25,16 @@
     </label> <br/>
     <br><br>
     <input class="button" type="submit" value="确认修改">
+</form>
     <br/>
 
     <%
         String ifSuccess = (String)request.getParameter("ifSuccess");
-        if(ifSuccess.equals("success")){
+        if("success".equals(ifSuccess)){
     %>
     <h5>修改成功！</h5>
     <%
-    }else if(ifSuccess.equals("failed")){
+    }else if("failed".equals(ifSuccess)){
     %>
     <h5>修改失败！</h5>
     <%
@@ -40,6 +42,6 @@
         }
     %>
     <br/>
-</form>
+
 </body>
 </html>

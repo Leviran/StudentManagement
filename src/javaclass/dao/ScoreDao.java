@@ -5,6 +5,7 @@ import util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreDao {
@@ -12,7 +13,7 @@ public class ScoreDao {
         String sql = "select * from scoureinfo where cid = ?";
         Object[] params = {cid};
         ResultSet rt = null;
-        List<Scoreinfo> list = null;
+        List<Scoreinfo> list = new ArrayList<>();
         Scoreinfo si = new Scoreinfo();
         si.setCid(cid);
         rt = DBUtil.executeQuery(sql,params);

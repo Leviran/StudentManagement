@@ -11,14 +11,13 @@ public class Student {
     private String major;
     private String grade;
     private String sex;
-    private Blob portrait;
     private String mail;
     private String clazz;
 
     public Student(){
     }
 
-    public Student(String id, String name, String password, String birth, String department, String major, String grade, String sex, Blob portrait, String mail,String clazz) {
+    public Student(String id, String name, String password, String birth, String department, String major, String grade, String sex, String mail,String clazz) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -27,7 +26,6 @@ public class Student {
         this.major = major;
         this.grade = grade;
         this.sex = sex;
-        this.portrait = portrait;
         this.mail = mail;
         this.clazz = clazz;
     }
@@ -102,14 +100,6 @@ public class Student {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public Blob getPortrait() {
-        return portrait;
-    }
-
-    public void setPortrait(Blob portrait) {
-        this.portrait = portrait;
     }
 
     public String getMail() {

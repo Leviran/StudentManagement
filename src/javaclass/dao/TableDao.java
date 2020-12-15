@@ -5,6 +5,7 @@ import util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TableDao {
@@ -12,7 +13,7 @@ public class TableDao {
         String sql = "select * from course_table where cid =?";
         Object[] params = {cid};
         ResultSet courseset = DBUtil.executeQuery(sql,params);
-        List<CourseTable> ctlist = null;
+        List<CourseTable> ctlist = new ArrayList<>();
         try{
             while(courseset.next()){
                 CourseTable ct = new CourseTable();
@@ -33,7 +34,7 @@ public class TableDao {
         String sql = "select * from course_table where tid =?";
         Object[] params = {tid};
         ResultSet courseset = DBUtil.executeQuery(sql,params);
-        List<CourseTable> ctlist = null;
+        List<CourseTable> ctlist = new ArrayList<>();
         try{
             while(courseset.next()){
                 CourseTable ct = new CourseTable();

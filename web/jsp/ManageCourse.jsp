@@ -17,7 +17,7 @@
 <h3>根据专业代码、年级查询课程</h3>
 <form action="jsp/ManageCourseShow.jsp" method="post" onsubmit="check(this)">
     专业：<input type="text" name="major"><br/>
-    年级：<input type="text" name="grade"><br/>
+    年级：<input type="text" name="grade"><br/><br/>
     <input type="submit" value="提交查询"><br/>
 </form>
 

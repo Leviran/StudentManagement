@@ -7,17 +7,15 @@ public class Admin {
     private String name;
     private String password;
     private String mail;
-    private Blob portrait;
 
     public Admin(){
     }
 
-    public Admin(String id, String name, String password, String mail, Blob portrait) {
+    public Admin(String id, String name, String password, String mail) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.mail = mail;
-        this.portrait = portrait;
     }
 
     public String getId() {
@@ -52,11 +50,4 @@ public class Admin {
         this.mail = mail;
     }
 
-    public Blob getPortrait() {
-        return portrait;
-    }
-
-    public void setPortrait(Blob portrait) {
-        this.portrait = portrait;
-    }
 }

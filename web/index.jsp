@@ -66,7 +66,8 @@
             账号： <input class="input1" type="text" placeholder="请输入账号"  name="id">  <br/>
             密码： <input class="input1" type="password" placeholder="请输入密码" name="pwd"> <br/>
             <img  id="imgValidate" src="servlet/validateServlet" onclick="refresh();">
-            <a onclick="refresh();"  style="color: brown;">看不清，换一张</a>
+            <a onclick="refresh();"  style="color: brown;">看不清，换一张</a><br/>
+
             请输入验证码：<input class="input1" type="text" name="code" size="10"><br/>
 
             <label>
@@ -107,7 +108,7 @@
 
     <script type="text/javascript">
         function refresh() {
-            document.getElementById("imgValidate").src="/servlet/validateServlet?now="+Math.random();
+            document.getElementById("imgValidate").src="servlet/validateServlet?now="+Math.random();
         }
     </script>
 </body>
